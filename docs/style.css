@@ -323,3 +323,10 @@ display: none;
 opacity: 0;
 }
 
+.spotlight {
+    background: radial-gradient(circle at center, rgba(74, 222, 128, 0.2) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+
+
