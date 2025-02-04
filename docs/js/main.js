@@ -3,112 +3,123 @@
  * Handles horizontal/vertical resizing of dev/design sections based on viewport
  */
 class SplitPaneController {
-    /**
-     * Initialize split pane controller
-     * @param {string} containerId - Parent container ID
-     * @param {string} dividerId - Divider element ID
-     * @param {string} primarySectionId - First section ID (dev)
-     * @param {string} secondarySectionId - Second section ID (design)
-     */
-    constructor(containerId, dividerId, primarySectionId, secondarySectionId) {
-      this.container = document.getElementById(containerId);
-      this.divider = document.getElementById(dividerId);
-      this.primarySection = document.getElementById(primarySectionId);
-      this.secondarySection = document.getElementById(secondarySectionId);
-      this.isDragging = false;
-      this.MIN_SIZE_PERCENTAGE = 20;
-      this.MAX_SIZE_PERCENTAGE = 80;
-  
-      this.initializeEventListeners();
-    }
-  
-    /** Set up event listeners for divider interaction */
-    initializeEventListeners() {
-      this.divider.addEventListener('mousedown', this.handleDragStart.bind(this));
-      document.addEventListener('mousemove', this.handleDragMove.bind(this));
-      document.addEventListener('mouseup', this.handleDragEnd.bind(this));
-      window.addEventListener('resize', this.handleWindowResize.bind(this));
-    }
-  
-    /** Handle drag start event */
-    handleDragStart() {
-      this.isDragging = true;
-      document.body.style.cursor = this.getCursorStyle();
-    }
-  
-    /** Handle drag movement event */
-    handleDragMove(e) {
-      if (!this.isDragging) return;
-  
-      if (this.isDesktopViewport()) {
-        this.handleHorizontalResize(e.clientX);
-      } else {
-        this.handleVerticalResize(e.clientY);
+  constructor(containerId, dividerId, primarySectionId, secondarySectionId) {
+    this.container = document.getElementById(containerId);
+    this.divider = document.getElementById(dividerId);
+    this.primarySection = document.getElementById(primarySectionId);
+    this.secondarySection = document.getElementById(secondarySectionId);
+    this.isDragging = false;
+    this.MIN_SIZE_PERCENTAGE = 20;
+    this.MAX_SIZE_PERCENTAGE = 80;
+    this.initializeEventListeners();
+  }
+
+  initializeEventListeners() {
+    // Mouse events
+    this.divider.addEventListener('mousedown', this.handleDragStart.bind(this));
+    document.addEventListener('mousemove', this.handleDragMove.bind(this));
+    document.addEventListener('mouseup', this.handleDragEnd.bind(this));
+
+    // Touch events with conditional preventDefault
+    this.divider.addEventListener('touchstart', (e) => {
+      console.log('Touchstart event:', e);
+      // Always prevent default to capture touchstart
+      e.preventDefault();
+      this.handleDragStart(e.touches[0]);
+    });
+    
+    document.addEventListener('touchmove', (e) => {
+      // Prevent scrolling only if dragging; otherwise allow scroll
+      if (this.isDragging) {
+        e.preventDefault();
       }
+      console.log('Touchmove event:', e);
+      this.handleDragMove(e.touches[0]);
+    }, { passive: false });
+    
+    document.addEventListener('touchend', (e) => {
+      console.log('Touchend event:', e);
+      this.handleDragEnd();
+    });
+
+    window.addEventListener('resize', this.handleWindowResize.bind(this));
+  }
+
+  handleDragStart(e) {
+    console.log('Drag started at:', e.clientX, e.clientY);
+    this.isDragging = true;
+    document.body.style.cursor = this.getCursorStyle();
+  }
+
+  handleDragMove(e) {
+    if (!this.isDragging) return;
+    console.log('Drag moving at:', e.clientX, e.clientY);
+    if (this.isDesktopViewport()) {
+      this.handleHorizontalResize(e.clientX);
+    } else {
+      this.handleVerticalResize(e.clientY);
     }
+  }
+
+  handleDragEnd() {
+    console.log('Drag ended');
+    this.isDragging = false;
+    document.body.style.cursor = 'default';
+  }
+
+  handleWindowResize() {
+    if (this.isDesktopViewport()) {
+      this.resetDesktopLayout();
+    } else {
+      this.resetMobileLayout();
+    }
+  }
+
+  isDesktopViewport() {
+    return window.innerWidth >= 1024;
+  }
+
+  getCursorStyle() {
+    return this.isDesktopViewport() ? 'col-resize' : 'row-resize';
+  }
+
+  handleHorizontalResize(clientX) {
+    const containerWidth = this.container.offsetWidth;
+    const percentage = (clientX / containerWidth) * 100;
+    const boundedPercentage = Math.max(this.MIN_SIZE_PERCENTAGE, Math.min(this.MAX_SIZE_PERCENTAGE, percentage));
+    
+    this.primarySection.style.width = `${boundedPercentage}%`;
+    this.secondarySection.style.width = `${100 - boundedPercentage}%`;
+  }
+
+  handleVerticalResize(clientY) {
+    const containerHeight = this.container.offsetHeight;
+    const percentage = (clientY / containerHeight) * 100;
+    const boundedPercentage = Math.max(this.MIN_SIZE_PERCENTAGE, Math.min(this.MAX_SIZE_PERCENTAGE, percentage));
+    
+    this.primarySection.style.height = `${boundedPercentage}vh`;
+    this.secondarySection.style.height = `${100 - boundedPercentage}vh`;
+  }
+
+  resetDesktopLayout() {
+    this.primarySection.style.height = '100%';
+    this.secondarySection.style.height = '100%';
+  }
+
   
-    /** Handle drag end event */
-    handleDragEnd() {
-      this.isDragging = false;
-      document.body.style.cursor = 'default';
-    }
+  resetMobileLayout() {
+    // Set each section to half the viewport height with smooth scrolling enabled
+    this.primarySection.style.width = '100%';
+    this.primarySection.style.height = '50vh';
+    this.primarySection.style.overflowY = 'auto';
+    this.primarySection.style.webkitOverflowScrolling = 'touch';
   
-    /** Handle window resize event */
-    handleWindowResize() {
-      if (this.isDesktopViewport()) {
-        this.resetDesktopLayout();
-      } else {
-        this.resetMobileLayout();
-      }
-    }
+    this.secondarySection.style.width = '100%';
+    this.secondarySection.style.height = '50vh';
+    this.secondarySection.style.overflowY = 'auto';
+    this.secondarySection.style.webkitOverflowScrolling = 'touch';
+  }
   
-    /** Determine if current viewport is desktop size */
-    isDesktopViewport() {
-      return window.innerWidth >= 1024;
-    }
-  
-    /** Get appropriate cursor style based on viewport */
-    getCursorStyle() {
-      return this.isDesktopViewport() ? 'col-resize' : 'row-resize';
-    }
-  
-    /** Update section widths for horizontal resize */
-    handleHorizontalResize(clientX) {
-      const containerWidth = this.container.offsetWidth;
-      const percentage = (clientX / containerWidth) * 100;
-      const boundedPercentage = this.getBoundedPercentage(percentage);
-      
-      this.primarySection.style.width = `${boundedPercentage}%`;
-      this.secondarySection.style.width = `${100 - boundedPercentage}%`;
-    }
-  
-    /** Update section heights for vertical resize */
-    handleVerticalResize(clientY) {
-      const containerHeight = this.container.offsetHeight;
-      const percentage = (clientY / containerHeight) * 100;
-      const boundedPercentage = this.getBoundedPercentage(percentage);
-      
-      this.primarySection.style.height = `${boundedPercentage}vh`;
-      this.secondarySection.style.height = `${100 - boundedPercentage}vh`;
-    }
-  
-    /** Keep percentage within allowed bounds */
-    getBoundedPercentage(percentage) {
-      return Math.max(this.MIN_SIZE_PERCENTAGE, 
-        Math.min(this.MAX_SIZE_PERCENTAGE, percentage));
-    }
-  
-    /** Reset layout for desktop view */
-    resetDesktopLayout() {
-      this.primarySection.style.height = '100%';
-      this.secondarySection.style.height = '100%';
-    }
-  
-    /** Reset layout for mobile view */
-    resetMobileLayout() {
-      this.primarySection.style.width = '100%';
-      this.secondarySection.style.width = '100%';
-    }
   }
   
   /**

@@ -1743,6 +1743,9 @@
   .border-\[\#193549\]\/60 {
     border-color: color-mix(in oklab, #193549 60%, transparent);
   }
+  .border-\[rgba\(25\,53\,73\,0\.6\)\] {
+    border-color: rgba(25,53,73,0.6);
+  }
   .border-blue-500\/20 {
     border-color: color-mix(in oklab, var(--color-blue-500) 20%, transparent);
   }
@@ -1817,6 +1820,9 @@
   }
   .bg-\[color\:var\(--my-color\)\] {
     background-color: var(--my-color);
+  }
+  .bg-\[rgba\(25\,53\,73\,0\.08\)\] {
+    background-color: rgba(25,53,73,0.08);
   }
   .bg-\[var\(--my_variable\)\] {
     background-color: var(--my_variable);
