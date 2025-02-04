@@ -1,0 +1,325 @@
+
+
+.binary-bg::before {
+    content: "01";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.1;
+    font-family: monospace;
+    font-size: 20px;
+    overflow: hidden;
+    animation: binary 2s linear infinite;
+}
+
+@keyframes binary {
+    0% { content: "0101"; }
+    50% { content: "1010"; }
+    100% { content: "0101"; }
+}
+
+.typing-animation {
+    overflow: hidden;
+    border-right: 2px solid #4ade80;
+    white-space: nowrap;
+    animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+}
+
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: #4ade80 }
+}
+
+
+  /* Hide scrollbar for Chrome, Safari and Opera */
+.hide-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.hide-scrollbar {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+display: none;
+}
+.hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+    /* Grid Pattern with subtle gradient */
+.bg-grid-pattern {
+    background: linear-gradient(to right, #f8fafc, #f1f5f9);
+    background-image: 
+        linear-gradient(rgba(148, 163, 184, 0.1) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(148, 163, 184, 0.1) 1px, transparent 1px);
+    background-size: 20px 20px;
+}
+
+/* Hover effects */
+.tool-button {
+    transition: all 0.2s ease;
+}
+
+.tool-button:hover {
+    background: linear-gradient(45deg, rgba(99, 102, 241, 0.1), rgba(168, 85, 247, 0.1));
+    transform: translateY(-1px);
+}
+
+/* Custom scrollbar hiding */
+.hide-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+.hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+
+    @keyframes fade-in {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-fade-in {
+    animation: fade-in 0.5s ease-out forwards;
+}
+
+
+/* Custom cursor designer */
+/* Custom cursor designer */
+#design-section {
+    cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.5'><path d='M18 2l4 4L8 20H4v-4L18 2z'/><path d='M15 5l4 4'/></svg>"), auto;
+}
+
+#design-section button,
+#design-section a {
+    cursor: pointer;
+}
+
+.tool-button:hover {
+    cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%234f46e5' stroke-width='1.5'><path d='M18 2l4 4L8 20H4v-4L18 2z'/><path d='M15 5l4 4'/></svg>"), auto;
+}
+
+
+#drawingCanvas {
+filter: url('#gooey');
+}
+
+
+    .brush-stroke {
+        stroke-dasharray: 2000;
+        stroke-dashoffset: 2000;
+        animation: draw 2.5s ease forwards;
+    }
+
+    @keyframes draw {
+        to {
+            stroke-dashoffset: 0;
+        }
+    }
+
+
+
+
+    @keyframes fade-up {
+from {
+    opacity: 0;
+    transform: translateY(20px);
+}
+to {
+    opacity: 1;
+    transform: translateY(0);
+}
+}
+
+.animate-fade-up {
+--index: 0;
+}
+
+
+
+
+.reveal-section {
+opacity: 0;
+transform: translateX(-100px);
+transition: all 1s cubic-bezier(0.17, 0.55, 0.55, 1);
+}
+
+.reveal-section.active {
+opacity: 1;
+transform: translateX(0);
+}
+
+.parallax-wrapper {
+perspective: 1000px;
+}
+
+.parallax-layer {
+transform-style: preserve-3d;
+transition: transform 0.5s cubic-bezier(0.17, 0.55, 0.55, 1);
+}
+
+
+
+
+.glassmorphism {
+background: linear-gradient(
+135deg,
+rgba(255, 255, 255, 0.1),
+rgba(255, 255, 255, 0.05)
+);
+-webkit-backdrop-filter: blur(10px);
+backdrop-filter: blur(10px);
+border: 1px solid rgba(255, 255, 255, 0.1);
+box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+.gradient-bg {
+background: linear-gradient(
+45deg,
+rgba(19, 165, 255, 0.9),
+rgba(3, 19, 53, 0.9)
+);
+}
+
+/* Update parallax-layer class */
+.parallax-layer {
+transform-style: preserve-3d;
+transition: transform 0.5s cubic-bezier(0.17, 0.55, 0.55, 1);
+background: linear-gradient(
+135deg,
+rgba(60, 136, 249, 0.95),
+rgba(13, 17, 23, 0.8)
+);
+-webkit-backdrop-filter: blur(8px);
+backdrop-filter: blur(8px);
+border: 1px solid rgba(48, 54, 61, 0.5);
+box-shadow: 
+0 4px 6px -1px rgba(0, 0, 0, 0.1),
+0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+
+@keyframes network-line {
+0% { transform: translateY(0); }
+100% { transform: translateY(-100vh); }
+}
+
+.animate-network-line {
+animation: network-line 3s linear infinite;
+}
+
+
+
+
+/* Custom Cursor Styles */
+#dev-section {
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="%2358a6ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/></svg>') 12 12,
+        auto;
+}
+
+#dev-section a,
+#dev-section button {
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="%2358a6ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>') 12 12,
+        pointer;
+}
+
+#dev-section input,
+#dev-section textarea {
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="%2358a6ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"/></svg>') 12 12,
+        text;
+}
+
+
+
+
+
+.grid-pattern-enhanced {
+animation: gridPulse 10s ease-in-out infinite;
+}
+
+@keyframes gridPulse {
+0%, 100% { opacity: 0.7; }
+50% { opacity: 0.9; }
+}
+
+
+
+.hide-scrollbar::-webkit-scrollbar {
+display: none;
+}
+.hide-scrollbar {
+-ms-overflow-style: none;
+scrollbar-width: none;
+}
+
+
+
+/* Brush stroke animation */
+.brush-stroke {
+stroke-dasharray: 2000;
+stroke-dashoffset: 2000;
+}
+
+/* Fade in animation for tools */
+@keyframes fadeIn {
+from { opacity: 0; transform: translateY(10px); }
+to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+animation: fadeIn 0.5s ease-out forwards;
+}
+
+/* Grid pattern animation */
+@keyframes gridPulse {
+0%, 100% { opacity: 0.7; }
+50% { opacity: 0.9; }
+}
+
+.grid-pattern-enhanced {
+animation: gridPulse 10s ease-in-out infinite;
+}
+
+/* Canvas drawing animation */
+.canvas-animate {
+transition: all 0.3s ease;
+}
+
+/* Hide scrollbar */
+.hide-scrollbar {
+-ms-overflow-style: none;
+scrollbar-width: none;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+display: none;
+}
+
+
+.hidden {
+display: none;
+}
+
+.opacity-0 {
+opacity: 0;
+}
+
