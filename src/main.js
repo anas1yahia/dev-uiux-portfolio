@@ -400,8 +400,8 @@ document.querySelector('a[href="#projects"]').addEventListener('click', function
 
 /* profile image */
 
-/* Profile Image Modal */
-// Make function globally available
+
+
 window.toggleProfileImage = function() {
   try {
       const modal = document.getElementById('profile-modal');
