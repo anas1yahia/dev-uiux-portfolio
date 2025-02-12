@@ -498,7 +498,7 @@ document.addEventListener('DOMContentLoaded', () => {
 const GITHUB_USERNAME = 'anas1yahia';
 async function fetchGitHubRepos() {
   const projectsGrid = document.getElementById('projects-grid');
-  const GITHUB_TOKEN = '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'; // Replace with your GitHub token
+//  const GITHUB_TOKEN = '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'; // Replace with your GitHub token
 
   try {
     projectsGrid.innerHTML = `<div class="flex justify-center py-8 col-span-full">
@@ -628,8 +628,8 @@ document.addEventListener('DOMContentLoaded', fetchGitHubRepos);
 
 
 // Figma API Integration
-const FIGMA_ACCESS_TOKEN = 'figd_n2R8S_Dj58mKLbrUikzXkupolJAfYqE5I0pu5kLk';
-const FIGMA_TEAM_ID = '1468794464974120304';
+//const FIGMA_ACCESS_TOKEN = 'figd_n2R8S_Dj58mKLbrUikzXkupolJAfYqE5I0pu5kLk';
+//const FIGMA_TEAM_ID = '1468794464974120304';
 
 async function getFigmaProjectFiles(projectId) {
   try {
