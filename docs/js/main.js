@@ -121,6 +121,49 @@ class SplitPaneController {
   }
   
   }
+
+
+  // Add touch event handlers
+document.addEventListener('DOMContentLoaded', () => {
+  const divider = document.getElementById('divider');
+  const leftPanel = document.querySelector('#dev-section');
+  const rightPanel = document.querySelector('#design-section');
+  let isDragging = false;
+  let startY = 0;
+  let startHeight = 0;
+
+  // Touch events for mobile
+  divider.addEventListener('touchstart', (e) => {
+    e.preventDefault();
+    isDragging = true;
+    startY = e.touches[0].clientY;
+    startHeight = leftPanel.offsetHeight;
+    
+    // Add visual feedback
+    divider.classList.add('active');
+  }, { passive: false });
+
+  document.addEventListener('touchmove', (e) => {
+    if (!isDragging) return;
+    e.preventDefault();
+    
+    const deltaY = e.touches[0].clientY - startY;
+    const newHeight = Math.max(100, Math.min(startHeight + deltaY, window.innerHeight - 100));
+    
+    leftPanel.style.height = `${newHeight}px`;
+    rightPanel.style.height = `${window.innerHeight - newHeight}px`;
+  }, { passive: false });
+
+  document.addEventListener('touchend', () => {
+    isDragging = false;
+    divider.classList.remove('active');
+  });
+
+  // Prevent scrolling when touching the divider
+  divider.addEventListener('touchmove', (e) => {
+    e.preventDefault();
+  }, { passive: false });
+});
   
   /**
    * CANVAS ANIMATION CONTROLLER
@@ -453,100 +496,121 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // GitHub API Integration
 const GITHUB_USERNAME = 'anas1yahia';
-const fetchGitHubRepos = async () => {
+async function fetchGitHubRepos() {
   const projectsGrid = document.getElementById('projects-grid');
-  
+  const GITHUB_TOKEN = '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'; // Replace with your GitHub token
+
   try {
     projectsGrid.innerHTML = `<div class="flex justify-center py-8 col-span-full">
       <div class="animate-spin rounded-full h-8 w-8 border-2 border-[#58a6ff]"></div>
     </div>`;
 
-    const response = await fetch(`https://api.github.com/users/${GITHUB_USERNAME}/repos?sort=updated&per_page=5`);
+    const headers = {
+      'Authorization': `token ${GITHUB_TOKEN}`
+    };
+
+    const response = await fetch(`https://api.github.com/users/${GITHUB_USERNAME}/repos?sort=updated&per_page=5`, {
+      headers: headers
+    });
+
+    if (!response.ok) {
+      throw new Error(`GitHub API error: ${response.status}`);
+    }
+
     const repos = await response.json();
 
-    projectsGrid.innerHTML = repos.map(repo => `
-      <article class="relative overflow-hidden group
-                     bg-gradient-to-br from-[#1e3a8a]/30 to-[#1e1e1e]/80
-                     backdrop-filter backdrop-blur-lg
-                     border border-white/10 rounded-lg p-4
-                     shadow-[0_8px_32px_0_rgba(31,38,135,0.37)]
-                     hover:shadow-[0_8px_32px_0_rgba(31,38,135,0.47)]
-                     transition-all duration-300">
-        
+    if (Array.isArray(repos)) {
+      projectsGrid.innerHTML = repos.map(repo => `
+        <article class="relative overflow-hidden group
+                       bg-gradient-to-br from-[#1e3a8a]/30 to-[#1e1e1e]/80
+                       backdrop-filter backdrop-blur-lg
+                       border border-white/10 rounded-lg p-4
+                       shadow-[0_8px_32px_0_rgba(31,38,135,0.37)]
+                       hover:shadow-[0_8px_32px_0_rgba(31,38,135,0.47)]
+                       transition-all duration-300">
+
         <!-- Glass Overlay -->
-        <div class="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-transparent"></div>
+          <div class="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-transparent"></div>
 
-        <!-- Content -->
-        <div class="relative z-10">
-          <!-- Project Header -->
-          <div class="flex justify-between mb-4">
-            <div class="flex items-center gap-2">
-              <div class="w-2 h-2 bg-[#ff5f56] rounded-full animate-pulse"></div>
-              <div class="w-2 h-2 bg-[#ffbd2e] rounded-full animate-pulse delay-100"></div>
-              <div class="w-2 h-2 bg-[#27c93f] rounded-full animate-pulse delay-200"></div>
+          <!-- Content -->
+          <div class="relative z-10">
+            <!-- Project Header -->
+            <div class="flex justify-between mb-4">
+              <div class="flex items-center gap-2">
+                <div class="w-2 h-2 bg-[#ff5f56] rounded-full animate-pulse"></div>
+                <div class="w-2 h-2 bg-[#ffbd2e] rounded-full animate-pulse delay-100"></div>
+                <div class="w-2 h-2 bg-[#27c93f] rounded-full animate-pulse delay-200"></div>
+              </div>
+              <span class="text-[#7ee787] font-mono text-sm">${repo.private ? 'private' : 'public'}</span>
             </div>
-            <span class="text-[#7ee787] font-mono text-sm">${repo.private ? 'private' : 'public'}</span>
-          </div>
 
-          <!-- Project Info -->
-          <div class="mb-4 border-l-2 border-blue-500/20 pl-4">
-            <h2 class="text-lg font-bold font-mono flex items-center gap-2">
-              <svg class="w-4 h-4 text-[#7ee787]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
-                      d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01">
-                </path>
-              </svg>
-              ${repo.name}
-            </h2>
-            <p class="text-[#7d8590] font-mono">${repo.description || 'No description available'}</p>
-          </div>
-
-          <!-- Project Stats -->
-          <div class="grid grid-cols-2 gap-4 mb-4 font-mono text-xs">
-            <div class="flex items-center gap-2 text-[#7d8590]">
-              <span class="h-1 w-8 bg-gradient-to-r from-[#238636] to-[#238636]/50 rounded"></span>
-              <span>${repo.language || 'N/A'}</span>
+            <!-- Project Info -->
+            <div class="mb-4 border-l-2 border-blue-500/20 pl-4">
+              <h2 class="text-lg font-bold font-mono flex items-center gap-2">
+                <svg class="w-4 h-4 text-[#7ee787]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01">
+                  </path>
+                </svg>
+                ${repo.name}
+              </h2>
+              <p class="text-[#7d8590] font-mono">${repo.description || 'No description available'}</p>
             </div>
-            <div class="flex items-center gap-2 text-[#7d8590]">
-              <span class="h-1 w-8 bg-gradient-to-r from-[#58a6ff] to-[#58a6ff]/50 rounded"></span>
-              <span>⭐ ${repo.stargazers_count}</span>
-            </div>
-          </div>
 
-          <!-- Project Actions -->
-          <div class="flex items-center justify-between border-t border-white/5 pt-4">
-            <a href="${repo.html_url}" target="_blank" 
-               class="flex items-center gap-2 text-[#7d8590] font-mono text-sm hover:text-[#58a6ff] transition-colors">
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
-                      d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
-              </svg>
-              <span>Source</span>
-            </a>
-            ${repo.homepage ? `
-              <a href="${repo.homepage}" target="_blank" 
+            <!-- Project Stats -->
+            <div class="grid grid-cols-2 gap-4 mb-4 font-mono text-xs">
+              <div class="flex items-center gap-2 text-[#7d8590]">
+                <span class="h-1 w-8 bg-gradient-to-r from-[#238636] to-[#238636]/50 rounded"></span>
+                <span>${repo.language || 'N/A'}</span>
+              </div>
+              <div class="flex items-center gap-2 text-[#7d8590]">
+                <span class="h-1 w-8 bg-gradient-to-r from-[#58a6ff] to-[#58a6ff]/50 rounded"></span>
+                <span>⭐ ${repo.stargazers_count}</span>
+              </div>
+            </div>
+
+            <!-- Project Actions -->
+            <div class="flex items-center justify-between border-t border-white/5 pt-4">
+              <a href="${repo.html_url}" target="_blank"
                  class="flex items-center gap-2 text-[#7d8590] font-mono text-sm hover:text-[#58a6ff] transition-colors">
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
-                        d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
                 </svg>
-                <span>Demo</span>
+                <span>Source</span>
               </a>
-            ` : ''}
+              ${repo.homepage ? `
+                <a href="${repo.homepage}" target="_blank"
+                   class="flex items-center gap-2 text-[#7d8590] font-mono text-sm hover:text-[#58a6ff] transition-colors">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                          d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                  </svg>
+                  <span>Demo</span>
+                </a>
+              ` : ''}
+            </div>
           </div>
-        </div>
 
-        <!-- Network Activity Lines -->
-        <div class="absolute inset-0 overflow-hidden pointer-events-none">
-          <div class="absolute inset-0 opacity-10 group-hover:opacity-20 transition-opacity">
-            <div class="h-[1px] w-full bg-gradient-to-r from-transparent via-[#58a6ff] to-transparent 
-                        transform translate-y-full animate-network-line"></div>
-            <div class="h-[1px] w-full bg-gradient-to-r from-transparent via-[#58a6ff] to-transparent 
-                        transform translate-y-full animate-network-line delay-300"></div>
+          <!-- Network Activity Lines -->
+          <div class="absolute inset-0 overflow-hidden pointer-events-none">
+            <div class="absolute inset-0 opacity-10 group-hover:opacity-20 transition-opacity">
+              <div class="h-[1px] w-full bg-gradient-to-r from-transparent via-[#58a6ff] to-transparent
+                          transform translate-y-full animate-network-line"></div>
+              <div class="h-[1px] w-full bg-gradient-to-r from-transparent via-[#58a6ff] to-transparent
+                          transform translate-y-full animate-network-line delay-300"></div>
+            </div>
           </div>
+        </article>
+      `).join('');
+    } else {
+      projectsGrid.innerHTML = `
+        <div class="text-center text-[#ff5f56] font-mono py-8 col-span-full">
+          Error: Could not load projects. Invalid data received from GitHub API.
         </div>
-      </article>
-    `).join('');
+      `;
+      console.error('GitHub API returned non-array:', repos);
+    }
   } catch (error) {
     console.error('GitHub API Error:', error);
     projectsGrid.innerHTML = `
@@ -685,3 +749,36 @@ document.addEventListener('DOMContentLoaded', () => {
   fetchGitHubRepos();
   fetchRecentFigmaFiles();
 });
+
+
+
+
+ /*mobile view switch*/
+
+ document.addEventListener('DOMContentLoaded', () => {
+  const devSection = document.getElementById('dev-section');
+  const designSection = document.getElementById('design-section');
+  const toggleButton = document.querySelector('#toggle-section');
+
+  
+
+  toggleButton.addEventListener('click', () => {
+    if (designSection.style.display === 'none') {
+      designSection.style.display = 'block';
+      devSection.style.display = 'none';
+      toggleButton.textContent = 'Switch to Dev Portfolio';
+    } else {
+      designSection.style.display = 'none';
+      devSection.style.display = 'block';
+      toggleButton.textContent = 'Switch to UI/UX Portfolio';
+      
+    }
+  });
+});
+
+
+
+
+
+
+

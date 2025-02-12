@@ -325,8 +325,296 @@ opacity: 0;
 
 .spotlight {
     background: radial-gradient(circle at center, rgba(74, 222, 128, 0.2) 0%, transparent 70%);
-    pointer-events: none;
+    pointer-events: auto;
 }
 
 
 
+#divider {
+    -webkit-user-select: none;
+    user-select: none;
+    touch-action: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  #divider.active {
+    background-color: #58a6ff;
+  }
+  
+  @media (max-width: 768px) {
+    #divider {
+        position: relative;
+      height: 16px; /* Larger touch target */
+      border-radius: 4px;
+    }
+    
+    #divider .handle {
+        position: absolute;
+      height: 8px;
+      width: 40px;
+        
+    }
+  }
+
+
+
+
+
+
+/* Desktop Styles */
+@media (min-width: 769px) {
+    #portfolio-content {
+      display: flex;
+      flex-direction: row;
+      min-height: 100vh;
+    }
+  
+    #dev-section {
+      width: 50%;
+      height: 100vh;
+      position: relative;
+      overflow-y: auto;
+    }
+  
+    #design-section {
+        width: 50%;
+        height: 100vh;
+        position: relative;
+        overflow-y: auto;
+      
+    }
+  
+    #divider {
+      display: flex;
+      height: 100vh;
+      width: 12px;
+      cursor: col-resize;
+    }
+  }
+
+
+
+/* Tablet Styles */
+@media (min-width: 700px) and (max-width: 868px) {
+  #portfolio-content {
+    display: block;
+  }
+
+  .flip-container {
+    perspective: 1000px;
+    width: 100%;
+    height: 100%;
+  }
+
+  .flipper {
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+    position: relative;
+  }
+
+  .front, .back {
+    backface-visibility: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
+
+  .front {
+    z-index: 2;
+    transform: rotateY(0deg);
+  }
+
+  .back {
+    transform: rotateY(180deg);
+  }
+
+  #design-section {
+    display: none;
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+
+  #dev-section {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+
+  #divider {
+    display: none;
+  }
+
+  #toggle-section {
+    display: block;
+  }
+
+  #toolbar-nav {
+    margin-bottom: 70px;
+    z-index: 40;
+  }
+  
+  #toggle-section {
+    display: block;
+    position: fixed;
+    
+    left: 50%;
+    
+    background-color: rgb(126, 25, 227);
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 1rem;
+    font-size: 1rem;
+    z-index: 50;
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+    transition: all 0.3s ease-in-out;
+  }
+
+  
+
+  
+}
+
+
+
+
+  
+  /* Mobile Styles */
+  @media (max-width: 768px) {
+    #design-section {
+      display: none;
+      width: 100%;
+      height: auto;
+      position: relative;
+      top: auto;
+      left: auto;
+      transform: none;
+    }
+  
+    #dev-section {
+      width: 100%;
+      height: auto;
+      position: relative;
+      top: auto;
+      left: auto;
+      transform: none;
+    }
+  
+    #divider {
+      display: none;
+    }
+  
+    #toggle-section {
+      display: block;
+    }
+  }
+  
+  /* Common Styles */
+  #toolbar-nav {
+    margin-bottom: 70px;
+    z-index: 40;
+  }
+  
+  #toggle-section {
+    display: none;
+    z-index: 50;
+  }
+  
+  @media (max-width: 768px) {
+    #toggle-section {
+      display: block;
+    }
+  }
+      
+
+
+
+
+
+  #profile-name{
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #000;
+    margin-bottom: 0.5rem;
+  }
+
+
+  /* Universal toggle button styles */
+#toggle-section {
+  position: fixed;
+  bottom: 1rem;
+  left: 50%;
+  
+  z-index: 9999;
+  display: none;
+}
+
+/* Tablet & Mobile visibility */
+@media (max-width: 1000px) {
+  #portfolio-content {
+    display: block;
+  }
+
+  .flip-container {
+    perspective: 1000px;
+    width: 100%;
+    height: 100%;
+  }
+
+  .flipper {
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+    position: relative;
+  }
+
+  .front, .back {
+    backface-visibility: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
+
+  #design-section {
+    display: none;
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+
+  #dev-section {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+
+  #divider {
+    display: none;
+  }
+
+  #toggle-section {
+    display: block !important;
+    position: fixed;
+    bottom: 1rem;
+    left: 50%;
+    
+    z-index: 9999;
+  }
+}
+
+/* Desktop visibility */
+@media (min-width: 1001px) {
+  #toggle-section {
+    display: none !important;
+  }
+}
+
+
+#social-links a {
+  pointer-events: auto;
+}
+
+#design-section a {
+  pointer-events: auto;
+}

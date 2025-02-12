@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.css" integrity="sha512-kJlvECunwXftkPwyvHbclArO8wszgBGisiLeuDFwNM8ws+wKIw0sv1os3ClWZOcrEB2eRXULYUsm8OVRGJKwGA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Portfolio - Developer & Designer</title>
 </head>
-<body class="bg-[#0d1117] text-gray-200 overflow-hidden">
+<body class=" text-gray-200 overflow-hidden">
 
 
 
@@ -22,29 +22,7 @@
       
             <section id="dev-section" class="w-full lg:w-1/2 h-[50vh] lg:h-full bg-[#0d1117] 
             overflow-y-auto hide-scrollbar px-8 relative">
-                <!-- Background Effects Layer -->
-                <div class="absolute inset-0 opacity-5 pointer-events-none matrix-bg"></div>
-
-                <!-- Navigation Bar -->
-                <nav id="portfolio-nav" class="sticky top-0 z-50 border-b border-[#30363d] p-4 bg-[#0d1117]/80 backdrop-blur-sm">
-                    <div class="flex items-center justify-between">
-                        <!-- Get to know me Button -->
-                        <button onclick="document.getElementById('portfolio-content').scrollIntoView({behavior: 'smooth'})"
-                                class="px-6 py-3 rounded-lg bg-gradient-to-r from-[#58a6ff]/10 to-transparent
-                                       hover:from-[#58a6ff]/20 hover:to-transparent
-                                       transition-all duration-300 group">
-                            <span class="flex items-center gap-3 text-lg">
-                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
-                                          d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
-                                </svg>
-                                Get to know me
-                            </span>
-                        </button>
-                
-                        
-                    </div>
-                </nav>
+               
 
 
                 
@@ -66,7 +44,7 @@
                                 <span class="text-green-400">visitor@portfolio</span>
                                 <span class="text-white">:</span>
                                 <span class="text-blue-400">~</span>
-                                <span class="text-white">$ ./introduction.sh</span>
+                                <span class="text-white text-wrap">$ ./introduction.sh</span>
                             </div>
                             
                             <!-- Hero Content -->
@@ -99,7 +77,17 @@
                                     <span class="text-blue-400">├── RxJS</span>
                                 </div>
                                 <div class="flex items-center py-1">
-                                    <span class="text-blue-400">└── NGRX</span>
+                                    <span class="text-blue-400">├── Prompt Engineering</span>
+                                </div>
+                                <div class="flex items-center py-1">
+                                    <span class="text-blue-400">└── Scss/Tailwindcss</span>
+                                </div>
+
+                                <div class="flex items-center py-1">
+                                    <span class="text-blue-400">└── Unit Testing</span>
+                                </div>
+                                <div class="flex items-center py-1">
+                                    <span class="text-blue-400">└── API Integration</span>
                                 </div>
                             </div>
                         </section>
@@ -130,7 +118,7 @@
                                     <p class="text-[#7d8590] leading-relaxed">
                                         <span class="text-[#7ee787]">const</span> <span class="text-[#e6edf3]">developer</span> = {<br>
                                         &nbsp;&nbsp;name: <span class="text-[#a5d6ff]">"Yahia Anas"</span>,<br>
-                                        &nbsp;&nbsp;role: <span class="text-[#a5d6ff]">"Full Stack Developer"</span>,<br>
+                                        &nbsp;&nbsp;role: <span class="text-[#a5d6ff]">"Front-End Developer"</span>,<br>
                                         &nbsp;&nbsp;focus: <span class="text-[#a5d6ff]">"Angular & TypeScript"</span><br>
                                         };
                                     </p>
@@ -138,7 +126,7 @@
 
                                 <!-- Action Buttons -->
                                 <div class="flex flex-wrap gap-4">
-                                    <a id="download-cv" href="/path-to-cv.pdf" 
+                                    <a id="download-cv" href="https://drive.google.com/file/d/1G3KITYw5HCrUkOlW5eE8pP3xtIJz5qTI/view?usp=drive_link" 
                                     class="flex items-center gap-2 px-4 py-2 bg-blue-500 text-white rounded-lg 
                                             hover:bg-[#2ea043] transition-colors">
                                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -147,7 +135,7 @@
                                         <span>Download CV</span>
                                     </a>
 
-                                    <a id="contact-me" href="mailto:your.email@example.com" 
+                                    <a id="contact-me" href="mailto:anas.yahya42@gmail.com" 
                                     class="flex items-center gap-2 px-4 py-2 border border-[#30363d] text-[#7d8590] rounded-lg
                                             hover:border-[#7d8590] hover:text-white transition-colors">
                                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -228,15 +216,13 @@
                                 <span class="text-[#7d8590] group-hover:text-white font-mono">anas-yahia</span>
                             </a>
 
-                            <!-- Twitter/X -->
-                            <a href="https://twitter.com/yahia_anas" target="_blank"
+                            <!-- Meduim -->
+                            <a href="https://medium.com/@anas.yahya42" target="_blank"
                             class="flex items-center gap-3 p-4 rounded-lg
                                     border border-white/5 
                                     hover:bg-white/5 hover:border-[#58a6ff]/30
                                     transition-all duration-300 group">
-                                <svg class="w-5 h-5 text-[#7d8590] group-hover:text-white" fill="currentColor" viewBox="0 0 24 24">
-                                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-                                </svg>
+                                    <i class="ri-medium-fill text-2xl text-gray-400"></i>
                                 <span class="text-[#7d8590] group-hover:text-white font-mono">yahia_anas</span>
                             </a>
                         </div>
@@ -247,14 +233,16 @@
                     
                     </div>
                 </main>
+                 
              </section>
+
+           
 
             <!-- Draggable Divider - Horizontal for mobile/tablet, Vertical for desktop -->
             <div id="divider" 
-            class="h-3 w-full lg:h-full lg:w-3 bg-[#30363d] cursor-row-resize lg:cursor-col-resize flex items-center justify-center">
-
-             <!-- Divider Handle -->
-               <div class="h-2 w-10 lg:h-10 lg:w-2 bg-[#58a6ff] rounded-full"></div>
+                class="h-3 w-full lg:h-full lg:w-4 bg-[#30363d] cursor-row-resize lg:cursor-col-resize 
+                        flex items-center justify-center transition-colors duration-200 touch-none">
+            <div class="handle h-2 w-10 lg:h-10 lg:w-3 bg-[#58a6ff] rounded-full"></div>
             </div>
 
 
@@ -267,7 +255,7 @@
                 max-w-[90vw] lg:max-w-none">
             <!-- Make email text responsive -->
                 <span class="text-lg md:text-2xl lg:text-3xl font-mono truncate">
-                contact@anas-yahia.me
+                    anas.yahya42@gmail.com
                 </span>
                 </div>
 
@@ -400,7 +388,7 @@
                                                                                                     </a>
                                                                                                     </div>
                                                                                                     <p class="text-base md:text-lg text-gray-600 max-w-2xl">
-                                                                                                    Passionate about creating intuitive digital experiences that bridge the gap between user needs and business goals. 
+                                                                                                    Creating intuitive digital experiences that bridge the gap between user needs and business goals. 
                                                                                                     Specialized in design systems, interactive prototypes, and user-centered design solutions.
                                                                                                     </p>
                                                                                                 </div>
@@ -412,8 +400,20 @@
                                                                                                         border border-gray-200/40 animate-fade-in" style="animation-delay: 100ms">
                                                                                                 Figma
                                                                                             </span>
-                                                                                            <!-- Repeat for other skills with increasing animation delays -->
-                                                                                            <!-- ... [other skill elements] ... -->
+                                                                                            <span class="px-3 py-1 bg-gradient-to-r from-pink-500/10 to-violet-500/10 text-gray-700 rounded-full 
+                                                                                                        border border-gray-200/40 animate-fade-in" style="animation-delay: 100ms">
+                                                                                                Framer
+                                                                                            </span>
+
+                                                                                             <span class="px-3 py-1 bg-gradient-to-r from-pink-500/10 to-violet-500/10 text-gray-700 rounded-full 
+                                                                                                        border border-gray-200/40 animate-fade-in" style="animation-delay: 100ms">
+                                                                                                Notion
+                                                                                            </span>
+
+                                                                                            <span class="px-3 py-1 bg-gradient-to-r from-pink-500/10 to-violet-500/10 text-gray-700 rounded-full 
+                                                                                            border border-gray-200/40 animate-fade-in" style="animation-delay: 100ms">
+                                                                                                Protopie
+                                                                                            </span>
                                                                                             </div>
                                                                                 </div>
                                          </div>
@@ -530,7 +530,7 @@
                                                                 </p>
                                                                 <p class="flex items-start gap-2">
                                                                     <span class="text-[#00bcd4]">→</span>
-                                                                    Full-stack capabilities enhance end-to-end product development
+                                                                    Frontend development capabilities enhance end-to-end product development
                                                                 </p>
                                                             </div>
                                                             </div>
@@ -544,25 +544,32 @@
                                                                         rounded border border-[#193549]/20 
                                                                         text-xs text-[#193549]">
                                                                 <span class="w-2 h-2 bg-[#00bcd4] rounded-full mr-2"></span>
-                                                                2018: Product Engineering
+                                                                2020: Starting my journey in Product Design
+                                                            </span>
+
+                                                            <span class="inline-flex items-center px-3 py-1 
+                                                                        rounded border border-[#193549]/20 
+                                                                        text-xs text-[#193549]">
+                                                                <span class="w-2 h-2 bg-[#00bcd4] rounded-full mr-2"></span>
+                                                                2023: Product engneering graduation
                                                             </span>
                                                             <span class="inline-flex items-center px-3 py-1 
                                                                         rounded border border-[#193549]/20 
                                                                         text-xs text-[#193549]">
                                                                 <span class="w-2 h-2 bg-[#00bcd4] rounded-full mr-2"></span>
-                                                                2019: IXDF Certification
+                                                                2024: IXDF Certification
                                                             </span>
                                                             <span class="inline-flex items-center px-3 py-1 
                                                                         rounded border border-[#193549]/20 
                                                                         text-xs text-[#193549]">
                                                                 <span class="w-2 h-2 bg-[#00bcd4] rounded-full mr-2"></span>
-                                                                2020: Senior UI/UX Designer
+                                                                2024: Senior UI/UX Designer
                                                             </span>
                                                             <span class="inline-flex items-center px-3 py-1 
                                                                         rounded border border-[#193549]/20 
                                                                         text-xs text-[#193549]">
                                                                 <span class="w-2 h-2 bg-[#00bcd4] rounded-full mr-2"></span>
-                                                                2023: Full-Stack Development
+                                                                2024: Starting my journey in Frontend development
                                                             </span>
                                                         </div>
                                                     </div>
@@ -634,8 +641,8 @@
 
                                                         <!-- Social Links Grid -->
                                                         <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                                                            <!-- Figma Community -->
-                                                            <a href="#" class="group p-4 rounded-lg border border-[#193549]/20 hover:border-[#00bcd4]/40 transition-all duration-300" style="background-color: rgba(255, 255, 255, 0.6);">
+                                                             <!-- Figma Community -->
+                                                             <a href="https://www.figma.com/@ui_anasyahia" class="group p-4 rounded-lg border border-[#193549]/20 hover:border-[#00bcd4]/40 transition-all duration-300" style="background-color: rgba(255, 255, 255, 0.6);">
 
                                                                 <div class="flex items-center gap-3">
                                                                     <svg class="w-5 h-5" viewBox="0 0 38 57" fill="none">
@@ -651,7 +658,7 @@
                                                             </a>
 
                                                             <!-- LinkedIn -->
-                                                            <a href="#" class="group p-4 rounded-lg border border-[#193549]/20 hover:border-[#00bcd4]/40 transition-all duration-300" style="background-color: rgba(255, 255, 255, 0.6);">
+                                                            <a href="https://www.linkedin.com/in/anas-yahia/" class="group p-4 rounded-lg border border-[#193549]/20 hover:border-[#00bcd4]/40 transition-all duration-300" style="background-color: rgba(255, 255, 255, 0.6);">
 
                                                                 <div class="flex items-center gap-3">
                                                                     <svg class="w-5 h-5 text-[#0A66C2]" fill="currentColor" viewBox="0 0 24 24">
@@ -663,12 +670,10 @@
                                                             </a>
 
                                                             <!-- Twitter/X -->
-                                                            <a href="#" class="group p-4 rounded-lg border border-[#193549]/20 hover:border-[#00bcd4]/40 transition-all duration-300" style="background-color: rgba(255, 255, 255, 0.6);">
+                                                            <a href="https://medium.com/@anas.yahya42" class="group p-4 rounded-lg border border-[#193549]/20 hover:border-[#00bcd4]/40 transition-all duration-300" style="background-color: rgba(255, 255, 255, 0.6);">
                                                                 <div class="flex items-center gap-3">
-                                                                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                                                                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-                                                                  </svg>
-                                                                  <span class="text-sm text-[#193549]/70 group-hover:text-[#00bcd4] transition-colors">Twitter/X</span>
+                                                                    <i class="ri-medium-fill text-3xl "></i>
+                                                                  <span class="text-sm text-[#193549]/70 group-hover:text-[#00bcd4] transition-colors">Read my stories</span>
                                                                 </div>
                                                               </a>
                                                         </div>
@@ -683,105 +688,110 @@
 
 
 
-                        <!-- Floating Design Toolbar -->
-                        <!-- Fixed position toolbar with design tool buttons -->
-                        <div class="fixed bottom-4 md:bottom-6 left-1/2 -translate-x-1/2 z-30 w-[95%] md:w-auto">
-
-                                    <!-- Figma-like Toolbar -->
-                                    <div class="fixed bottom-4 md:bottom-6 lg:bottom-8 left-1/2 transform -translate-x-1/2 z-30 w-[95%] md:w-auto">
-                                    <!-- Main Navigation Toolbar -->
-                                    <div class="fixed bottom-4 md:bottom-6 lg:bottom-8 left-1/2 transform -translate-x-1/2 z-30 md:w-auto">
-                                        <nav class="bg-white/90 backdrop-blur-md shadow-lg rounded-full 
-                                                    px-2 md:px-4 lg:px-6 
-                                                    py-1.5 md:py-2 lg:py-3 
-                                                    flex items-center 
-                                                    space-x-1.5 md:space-x-3 lg:space-x-4 
-                                                    border border-gray-200">
-                                            
-                                             <!-- Home -->
-                                             <a href="#hero" 
-                                             class="flex items-center gap-1 md:gap-2 p-1.5 rounded-lg text-gray-700 hover:text-indigo-600 group"
-                                             id="home-link">
-                                              <svg class="w-4 h-4 md:w-5 md:h-5 lg:w-6 lg:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
-                                              </svg>
-                                              <span class="text-xs md:text-sm lg:text-base font-medium whitespace-nowrap">Home</span>
-                                          </a>
-                                    
-                                            <!-- Who Am I -->
-                                            <a href="#about" 
-                                                onclick="event.preventDefault()"
-                                                class="flex items-center gap-1 md:gap-2 p-1.5 rounded-lg text-gray-700 hover:text-indigo-600 group">
-                                                    <svg class="w-4 h-4 md:w-5 md:h-5 lg:w-6 lg:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                        <rect x="4" y="4" width="16" height="16" rx="2" stroke-width="2"/>
-                                                    </svg>
-                                                    <span class="text-xs md:text-sm lg:text-base font-medium whitespace-nowrap">Who Am I</span>
-                                                </a>
-                                    
-                                            <div class="w-px h-4 md:h-5 lg:h-6 bg-gray-200"></div>
-                                    
-                                            <!-- My Work -->
-                                            <a href="#projects" 
-                                                    id="projects-link"
-                                                    class="flex items-center gap-1 md:gap-2 p-1.5 rounded-lg text-gray-700 hover:text-indigo-600 group">
-                                                    <svg class="w-4 h-4 md:w-5 md:h-5 lg:w-6 lg:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"/>
-                                                    </svg>
-                                                        <span class="text-xs md:text-sm lg:text-base font-medium whitespace-nowrap">My Work</span>
-                                                    </a>
-
-
-
-
-                                            <!-- Profile Image Container -->
-                                           
-                                            <div id="profile-modal" 
-                                                    class="fixed bottom-24 md:bottom-28 lg:bottom-32 
-                                                            left-1/2 -translate-x-1/2
-                                                            w-[90%] max-w-md
-                                                            bg-white/95 backdrop-blur-md
-                                                            rounded-2xl border border-gray-200
-                                                            shadow-lg
-                                                            transition-all duration-300 ease-out
-                                                            translate-y-full opacity-0 hidden
-                                                            z-50 p-6">
-                                                    
-                                                    <!-- Close Button -->
-                                                    <button onclick="toggleProfileImage()" 
-                                                            class="absolute top-4 right-4 text-gray-400 hover:text-gray-600">
-                                                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
-                                                        </svg>
-                                                    </button>
-
-                                                    <!-- Profile Content -->
-                                                    <img src="./public/profile.jpeg" 
-                                                        alt="Profile" 
-                                                        class="w-32 h-32 mx-auto rounded-full border-4 border-white 
-                                                        shadow-lg bg-contain"/>
-
-                                                    <h6 class="text-center text-2xl font-bold mt-4 font-mono">This is me <span class="text-3xl">👨🏻‍💻</span> 
-                                                    </h6>
-                                                </div>
-                                                
-                                    
-                                            <!-- Profile -->
-                        
-                                            <button onclick="toggleProfileImage()" 
-                                                    class="flex items-center gap-1 md:gap-2 p-1.5 rounded-lg text-gray-700 hover:text-indigo-600 group">
-                                                    <svg class="w-4 h-4 md:w-5 md:h-5 lg:w-6 lg:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
-                                                    </svg>
-                                                    <span class="text-xs md:text-sm lg:text-base font-medium whitespace-nowrap">Profile</span>
-                                                
-                                            </button>
-                                        </nav>
-                                    </div>
-                                    </div>
-                        </div>
+                       
 
                 
                 </section>
+
+
+                <div id="toolbar-nav" class="fixed bottom-4 left-1/2 -translate-x-1/2 z-30 w-[95%] md:w-auto">
+                    <!-- Toolbar content here -->
+                <nav class="bg-white/90 backdrop-blur-md shadow-lg rounded-full 
+                            px-2 md:px-4 lg:px-6 
+                            py-1.5 md:py-2 lg:py-3 
+                            flex items-center 
+                            space-x-1.5 md:space-x-3 lg:space-x-4 
+                            border border-gray-200">
+
+                    <!-- Home -->
+                    <a href="#hero" 
+                    class="flex items-center gap-1 md:gap-2 p-1.5 rounded-lg text-gray-700 hover:text-indigo-600 group"
+                    id="home-link">
+                    <svg class="w-4 h-4 md:w-5 md:h-5 lg:w-6 lg:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
+                    </svg>
+                    <span class="text-xs md:text-sm lg:text-base font-medium whitespace-nowrap">Home</span>
+                </a>
+
+                    <!-- Who Am I -->
+                    <a href="#about" 
+                        onclick="event.preventDefault()"
+                        class="flex items-center gap-1 md:gap-2 p-1.5 rounded-lg text-gray-700 hover:text-indigo-600 group">
+                            <svg class="w-4 h-4 md:w-5 md:h-5 lg:w-6 lg:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <rect x="4" y="4" width="16" height="16" rx="2" stroke-width="2"/>
+                            </svg>
+                            <span class="text-xs md:text-sm lg:text-base font-medium whitespace-nowrap">Who Am I</span>
+                        </a>
+
+                    <div class="w-px h-4 md:h-5 lg:h-6 bg-gray-200"></div>
+
+                    <!-- My Work -->
+                    <a href="#projects" 
+                            id="projects-link"
+                            class="flex items-center gap-1 md:gap-2 p-1.5 rounded-lg text-gray-700 hover:text-indigo-600 group">
+                            <svg class="w-4 h-4 md:w-5 md:h-5 lg:w-6 lg:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"/>
+                            </svg>
+                                <span class="text-xs md:text-sm lg:text-base font-medium whitespace-nowrap">My Work</span>
+                            </a>
+
+
+
+
+                    <!-- Profile Image Container -->
+                
+                    <div id="profile-modal" 
+                            class="fixed bottom-24 md:bottom-28 lg:bottom-32 
+                                    left-1/2 -translate-x-1/2
+                                    w-[90%] max-w-md
+                                    bg-white/95 backdrop-blur-md
+                                    rounded-2xl border border-gray-200
+                                    shadow-lg
+                                    transition-all duration-300 ease-out
+                                    translate-y-full opacity-0 hidden
+                                    z-50 p-6">
+                            
+                            <!-- Close Button -->
+                            <button onclick="toggleProfileImage()" 
+                                    class="absolute top-4 right-4 text-gray-400 hover:text-gray-600">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                                </svg>
+                            </button>
+
+                            <!-- Profile Content -->
+                            <img src="./public/profile.jpeg" 
+                                alt="Profile" 
+                                class="w-32 h-32 mx-auto rounded-full border-4 border-white 
+                                shadow-lg bg-contain"/>
+
+                            <h6 class="text-center text-2xl font-bold mt-4 font-mono"> <span id="profile-name" >This is me </span><span class="text-3xl">👨🏻‍💻</span> 
+                            </h6>
+                        </div>
+                        
+
+                    <!-- Profile -->
+
+                    <button onclick="toggleProfileImage()" 
+                            class="flex items-center gap-1 md:gap-2 p-1.5 rounded-lg text-gray-700 hover:text-indigo-600 group">
+                            <svg class="w-4 h-4 md:w-5 md:h-5 lg:w-6 lg:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                            </svg>
+                            <span class="text-xs md:text-sm lg:text-base font-medium whitespace-nowrap">Profile</span>
+                        
+                    </button>
+                </nav>
+                    </div>
+
+                    <button id="toggle-section" 
+                    class="fixed bottom-4 left-1/2 transform -translate-x-1/2 
+                           bg-green-700 hover:bg-green-600
+                           text-white text-nowrap rounded-2xl 
+                           z-[9999] p-4 shadow-lg
+                           transition-all duration-300
+                           sm:block md:block lg:hidden xl:hidden">
+                            Switch to UI/UX Portfolio
+                            </button>
                  </div>
 
 
