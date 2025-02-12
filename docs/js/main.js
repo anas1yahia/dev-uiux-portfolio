@@ -499,7 +499,7 @@ document.addEventListener('DOMContentLoaded', () => {
 const GITHUB_USERNAME = 'anas1yahia';
 async function fetchGitHubRepos() {
   const projectsGrid = document.getElementById('projects-grid');
-  const GITHUB_TOKEN = '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'; // Replace with your GitHub token
+  const GITHUB_TOKEN = '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'; // Replace with your GitHub token
 
   try {
     projectsGrid.innerHTML = `<div class="flex justify-center py-8 col-span-full">
